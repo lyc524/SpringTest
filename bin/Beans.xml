@@ -3,10 +3,23 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd" 
+    default-init-method="init"
+    default-destroy-method="destroy"
+    >
+    
+    <bean class="com.springtest.InitAnimal"/>
+    
+    <bean id="template" abstract="true" >
+    	<property name="name" value="god"/>
+    </bean>
 
-   <bean id="helloWorld" class="com.springtest.HelloWorld">
-       <property name="message" value="Hello World fuck you!"/>
+   <bean id="animal" class="com.springtest.Animal" parent="template">
+       <property name="name" value="大象"/>
+   </bean>
+   
+   <bean id="tiger" class="com.springtest.Tiger" parent="animal">
+       <property name="age" value="20"/>
    </bean>
 
 </beans>
