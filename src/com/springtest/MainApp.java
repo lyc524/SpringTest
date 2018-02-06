@@ -14,6 +14,7 @@ public final class MainApp {
 		printLog("tiger's name is:" + tiger.getName());
 		printLog("tiger's age is:" + tiger.getAge());
 		
+		tiger.haveLunch();
 		
 	        ctx.registerShutdownHook();   
 	   }

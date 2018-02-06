@@ -18,8 +18,12 @@
        <property name="name" value="大象"/>
    </bean>
    
-   <bean id="tiger" class="com.springtest.Tiger" parent="animal">
-       <property name="age" value="20"/>
+   <bean id="food" class="com.springtest.Food">
+   				<property name="name" value="兔子"/>
+   </bean>
+   
+   <bean id="tiger" class="com.springtest.Tiger" parent="animal" autowire="byType">
+        <property name="age" value="20"/>
    </bean>
 
 </beans>
