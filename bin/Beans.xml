@@ -2,11 +2,17 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd" 
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+    
     default-init-method="init"
     default-destroy-method="destroy"
     >
+    
+    <context:annotation-config/>
     
     <bean class="com.springtest.InitAnimal"/>
     
@@ -18,11 +24,15 @@
        <property name="name" value="大象"/>
    </bean>
    
-   <bean id="food" class="com.springtest.Food">
+   <bean id="food1" class="com.springtest.Food">
    				<property name="name" value="兔子"/>
    </bean>
    
-   <bean id="tiger" class="com.springtest.Tiger" parent="animal" autowire="byType">
+   <bean id="food2" class="com.springtest.Food">
+   		<property name="name" value="山羊"/>
+   </bean>
+   
+   <bean id="tiger" class="com.springtest.Tiger" parent="animal">
         <property name="age" value="20"/>
    </bean>
 
